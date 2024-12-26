@@ -17,16 +17,10 @@
 
 **[Набор данных](https://www.kaggle.com/datasets/hasibalmuzdadid/global-air-pollution-dataset)**
 
-**requirements.txt:**
+**Установка**
 
-    catboost==1.2.7
-    pandas==2.2.2
-    numpy==1.26.4
-    kagglehub==0.3.5
-    lightgbm==4.5.0
-    sklearn-pandas==2.2.0
-    matplotlib==3.8.0
-    seaborn==0.13.2
+    pip install -r requirements.txt
+    
 ## Пример использования
 
 ```python
