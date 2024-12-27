@@ -25,18 +25,23 @@
 
 ```python
 new_data = pd.DataFrame({
-    'CO AQI Value': [20],
-    'Ozone AQI Value': [50],
-    'NO2 AQI Value': [30],
-    'PM2.5 AQI Value': [40],
-    'Country': ['USA'],
-    'City': ['New York']
+    'CO AQI Value': [20, 30, 10, 75, 60, 25, 50, 90, 15, 80],
+    'Ozone AQI Value': [50, 30, 70, 80, 20, 45, 55, 120, 40, 90],
+    'NO2 AQI Value': [30, 40, 25, 35, 45, 50, 55, 100, 45, 115],
+    'PM2.5 AQI Value': [55, 50, 30, 66, 100, 90, 75, 200, 25, 350],
 })
 
+
 aqi_value, aqi_category = predict_aqi(new_data)
-aqi_category_for_map = aqi_category[0][0]
-print(f'Predicted AQI Value: {aqi_value}')
-print(f'Predicted AQI Category: {aqi_category_mapping[aqi_category_for_map]}')
+
+for value, category in zip(aqi_value, aqi_category):
+    # Преобразуем numpy.ndarray в строку, если это необходимо
+    if isinstance(category, np.ndarray):
+        category = category.item()  # Извлекаем значение из массива (если это массив с одним элементом)
+
+    print(f'Predicted AQI Value: {value}')
+    print(f'Predicted AQI Category: {aqi_category_mapping.get(category, str(category))}\n')
+
 ```
 ### Бизнес-постановка задачи
 * **Проблема**
